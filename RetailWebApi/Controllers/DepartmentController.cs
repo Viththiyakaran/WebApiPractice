@@ -37,12 +37,12 @@ namespace RetailWebApi.Controllers
             {
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand(que,con);
+                SqlCommand cmd = new SqlCommand(que, con);
 
                 dr = cmd.ExecuteReader();
                 dt.Load(dr);
 
-               
+
                 dr.Close();
                 con.Close();
             }
@@ -121,7 +121,7 @@ namespace RetailWebApi.Controllers
         }
 
 
-        [HttpDelete]
+        [HttpDelete ("{id}")]
         public JsonResult DeleteDepartment(int id)
         {
             string que = @"delete from dbo.tbldepartment where DepartmentID = @DepartmentID";
