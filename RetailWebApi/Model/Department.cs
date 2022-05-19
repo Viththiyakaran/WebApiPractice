@@ -9,11 +9,11 @@ namespace RetailWebApi.Model
     {
         public int DepartmentID { get; set; }
         
-        public string DepartmentName { get; set; }
+        //public string DepartmentName { get; set; }
 
-        public int IsVat { get; set; }
+        //public int IsVat { get; set; }
 
-        public int VatPer { get; set; }
+        //public int VatPer { get; set; }
         
     }
 }
