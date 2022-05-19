@@ -82,7 +82,7 @@ namespace RetailWebApi.Controllers
                 con.Close();
             }
 
-            return new JsonResult(dt);
+            return new JsonResult("New Department Added Done");
         }
 
 
@@ -117,7 +117,7 @@ namespace RetailWebApi.Controllers
                 con.Close();
             }
 
-            return new JsonResult(dt);
+            return new JsonResult("Department has been updated");
         }
 
 
@@ -149,7 +149,7 @@ namespace RetailWebApi.Controllers
                 con.Close();
             }
 
-            return new JsonResult(dt);
+            return new JsonResult("Department Deleted done");
         }
     }
 }
