@@ -20,5 +20,33 @@ namespace RetailWebApi.Controllers
         {
             _configuration = config;
         }
+
+        [HttpGet]
+        public JsonResult GetAllDepartment()
+        {
+            string que = @"select DepartmentID from dbo.tbldepartment";
+
+            DataTable dt = new DataTable();
+
+            string ConnectionString = _configuration.GetConnectionString("AppCon");
+
+            SqlDataReader dr;
+
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand(que,con);
+
+                dr = cmd.ExecuteReader();
+                dt.Load(dr);
+
+               
+                dr.Close();
+                con.Close();
+            }
+
+            return new JsonResult(dt);
+        }
     }
 }
