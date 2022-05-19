@@ -11,7 +11,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Newtonsoft.Json.Serialization;
 
 namespace RetailWebApi
 {
@@ -32,10 +31,6 @@ namespace RetailWebApi
                 c.AddPolicy("AllowOrgin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()) ;
             });
 
-            //JSON Serializer
-            services.AddControllersWithViews().AddNewtonsoftJson(options =>
-            options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore).AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
-
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -49,10 +44,6 @@ namespace RetailWebApi
 
             //Enable CORS
             app.UseCors(options=> options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-
-           
-           
-
 
 
             if (env.IsDevelopment())
